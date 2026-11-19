@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bit Runner: Modo Debug</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>BIT RUNNER <span>// modo debug</span></h1>
+    <p>Recolecta todos los bits, esquiva los virus... y cuidado: cuando eliminas uno, <strong>muta</strong>.</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- Zona del juego -->
+    <section class="zona-juego">
+      <div class="marcador">
+        <div>PUNTOS <strong id="puntos">0</strong></div>
+        <div>NIVEL <strong id="nivel">1</strong></div>
+        <div>VIDAS <strong id="vidas">♥♥♥</strong></div>
+      </div>
+
+      <div class="marco-canvas">
+        <canvas id="pantalla"></canvas>
+        <div id="notificacion" class="notificacion"></div>
+      </div>
+
+      <div class="controles-tactiles">
+        <button data-tecla="arrowup" class="arriba" aria-label="Arriba">▲</button>
+        <button data-tecla="arrowleft" class="izquierda" aria-label="Izquierda">◀</button>
+        <button data-tecla=" " class="centro" aria-label="Iniciar o pausar">❚❚</button>
+        <button data-tecla="arrowright" class="derecha" aria-label="Derecha">▶</button>
+        <button data-tecla="arrowdown" class="abajo" aria-label="Abajo">▼</button>
+      </div>
+    </section>
+
+    <!-- Panel lateral -->
+    <aside class="panel">
+      <section>
+        <h2>Virus <small>(Strategy)</small></h2>
+        <ul id="leyenda-virus" class="leyenda"></ul>
+      </section>
+
+      <section>
+        <h2>Objetos <small>(Factory)</small></h2>
+        <ul class="leyenda">
+          <li><span class="icono-texto">0 1</span> <strong>Bits</strong> — recógelos todos para pasar de nivel</li>
+          <li><span class="icono" style="background:#5ce1e6"></span> <strong>Antivirus</strong> — los virus se vuelven vulnerables</li>
+          <li><span class="icono" style="background:#ffe14d"></span> <strong>Overclock</strong> — te mueves más rápido</li>
+          <li><span class="icono" style="background:#ff3b3b"></span> <strong>Breakpoint</strong> — congela a los virus</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Consola <small>(Observer)</small></h2>
+        <ul id="consola" class="consola"></ul>
+      </section>
+
+      <section>
+        <h2>Logros <small>(Observer)</small></h2>
+        <ul id="logros" class="logros"></ul>
+      </section>
+
+      <section class="ayuda">
+        <h2>Controles</h2>
+        <p>Flechas o WASD: mover · Espacio: iniciar / pausa · M: sonido</p>
+      </section>
+    </aside>
+  </main>
+
+  <!-- El ORDEN importa: primero lo que otros archivos necesitan -->
+  <script src="js/config.js"></script>
+  <script src="js/patrones/observador.js"></script>
+  <script src="js/patrones/estrategias.js"></script>
+  <script src="js/patrones/estados.js"></script>
+  <script src="js/entidades/laberinto.js"></script>
+  <script src="js/entidades/coleccionables.js"></script>
+  <script src="js/entidades/personaje.js"></script>
+  <script src="js/entidades/jugador.js"></script>
+  <script src="js/entidades/virus.js"></script>
+  <script src="js/patrones/fabrica.js"></script>
+  <script src="js/ui/marcador.js"></script>
+  <script src="js/ui/consola.js"></script>
+  <script src="js/ui/logros.js"></script>
+  <script src="js/ui/sonido.js"></script>
+  <script src="js/juego.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
